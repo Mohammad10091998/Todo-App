@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width, initial-scale=1.0">
+    <title>
+        <%=title %>
+    </title>
+    <script src="https://kit.fontawesome.com/ffd3f97e4d.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="/css/home.css">
+</head>
+
+<body>
+    <div class="todo-app-container">
+        <div class="header">
+            <h1>Todo App</h1>
+        </div>
+
+        <div class="create-task">
+            <form action="/create-task" method="POST">
+                <div class="large-screen-descrip-cat">
+                    <div class="large-screen-des">
+                        <label class="label-beautify" for="description">Description</label>
+                        <input type="text" id="description" name="description" placeholder="Write your task here" required>
+                    </div>
+                   
+                    <div class="large-screen-cat">
+                        <label class="label-beautify" class="label-beautify" for="category">Category</label>
+    
+                        <select name="category" id="category">
+                            <option value="personal">Personal</option>
+                            <option value="work">Work</option>
+                            <option value="education">Education</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+
+                </div>
+
+                <div class="large-screen-date-addbtn">
+                    <div class="div">
+                        <label class="label-beautify" for="date">Due Date</label>
+                        <input type="date" id="date" name="date" required>
+                    </div>
+                   <div class="div">
+                    <button class="btn btn-add" id="add-btn" type="submit">Add Task</button>
+                   </div>
+                </div>
+                
+                
+            </form>
+        </div>
+
+        <div>
+            <a class="clear-all-anchor" href="/clear-all-task">
+                <button class="btn" id="clear-all">Clear All Task</button>
+            </a>
+        </div>
+
+        <div class="tasklist">
+            <ul>
+                <%for(let task of task_list){%>
+                    <li class="list-of-task">
+
+
+                        <div class="des-date">
+                            <div class="description-display">
+                                <p>
+                                    <%= task.description %>
+                                </p>
+                            </div>
+                            <div class="date-display">
+                                <p>
+                                    <%= task.date.toDateString() %>
+                                </p>
+                            </div>
+
+                        </div>
+
+                        <div class="category-delete-display">
+                            <div class="category-display">
+                                <p id = "category-p-tag">
+                                    <%= task.category.toUpperCase() %>
+                                </p>
+                            </div>
+                            <div class="deletebtn">
+                                <a href="/delete-task-by-id/?taskId=<%=task._id %>">
+                                    <i class="fa-solid fa-trash" id ="delete-btn"></i>
+                                </a>
+                            </div>
+                        </div>
+                
+
+                    </li>
+                    <%}%>
+            </ul>
+        </div>
+
+
+    </div>
+
+    <script type="text/javascript" src="/js/home.js"></script>
+</body>
+
+</html>

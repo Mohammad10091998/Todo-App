@@ -1,0 +1,197 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root{
+    --theme-change-color:rgb(61, 73, 101);
+    --text-color:rgb(214, 201, 201);
+    --dark-color:rgb(33, 29, 80); 
+}
+
+body{
+    background: var(--theme-change-color);
+}
+
+.todo-app-container{
+    width: 90vw;
+    height: auto;
+    margin:20px auto;
+    position: relative;
+}
+
+.header> h1{
+    color:var(--text-color);
+    text-align: center;
+    font-size: 50px;
+}
+
+
+/*----Form -------------*/
+.create-task {
+    width: 100%;
+    margin: 30px auto;
+}
+.create-task input,label,select{
+    display: block;
+    text-decoration: none;
+    margin:10px auto;
+    text-align: center;
+    font-size: 20px;
+    padding: 5px 5px;
+    color:grey;
+    cursor: pointer;
+}
+
+.label-beautify{
+    font-weight: bolder;
+    font-size: 25px;
+    color:var(--text-color)
+}
+
+/*--------BUTTON----------------*/
+.btn{
+    padding: 10px;
+    border-radius: 4px;
+    border: none;
+    color:var(--text-color);
+    font-weight: bold;
+    cursor: pointer;
+}
+.btn-add{
+    display: block;
+    background: rgb(77, 132, 77);
+    margin:30px auto;
+    font-size: 20px;
+    height: 50px;
+    width: 130px;
+    transition:all 0.5s ease-in-out;
+}
+.btn-add:hover{
+    background: rgb(109, 177, 109);
+    transform: translateY(-5px) scale(1.01);
+}
+
+/*-------Clear All Task BTN-----*/
+#clear-all{
+    display: block;
+    font-size: 20px;
+    margin:30px auto;
+    background-color: rgb(147, 54, 54);
+    height: 50px;
+    width: 180px;
+    transition:all 0.5s ease-in-out;
+}
+#clear-all:hover{
+    background: rgb(194, 58, 58);
+    transform: translateY(-5px) scale(1.01);
+}
+.clear-all-anchor{
+    display: block;
+    text-decoration: none;
+    height: 50px;
+    width: 180px;
+    margin:30px auto;
+}
+
+/*--------Task List---------------------*/
+
+.list-of-task{
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 10px;
+}
+.list-of-task:nth-child(odd){
+    background: rgb(162, 177, 244);
+}
+.list-of-task:nth-child(even){
+    background: rgb(178, 184, 239);
+}
+.list-of-task p{
+    font-weight: bold;
+}
+.check-des-date{
+    display: flex; 
+}
+
+.description-display{
+    padding: 5px 0;
+}
+.description-display> p{
+  font-size: 15px;
+  color:rgb(43, 61, 95);
+}
+.date-display>p{
+    color:rgb(88, 76, 76);
+}
+
+/*------category--delete-----*/
+.category-delete-display{
+    display: flex;
+}
+
+.category-display{
+    margin-right: 10px;
+}
+.category-display > p{
+    padding: 5px 5px;
+    color:lightgray;
+}
+#category-p-tag{
+    height: 30px;
+    width: 110px;
+    border-radius: 5px;
+    background-color: rgb(66, 109, 174);
+}
+
+
+
+/*----delete button--------*/
+.deletebtn a{
+    text-decoration: none;
+    color:rgb(166, 56, 56);
+    font-size: 20px;
+    transition: all 0.5s ease-in-out;
+}
+
+.deletebtn a i:hover{
+    transform: scale(1.1);
+    color: rgb(245, 74, 74);
+}
+
+/*-----check mark animation--*/
+
+#iscomplete{
+    display:inline-block;
+    height: 20px;
+    width: 20px;
+    position: absolute;
+}
+
+/*----css for large screen----*/
+
+@media only screen and (min-width: 600px){
+    .todo-app-container{
+        width: 70vw;
+    }
+    .large-screen-descrip-cat{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    } 
+    .large-screen-date-addbtn{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }  
+} 
+
+
+@media only screen and (min-width: 1000px){
+    .todo-app-container{
+        width: 60vw;
+    }
+}
